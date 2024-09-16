@@ -34,7 +34,7 @@ export function Book({book, updateShelf }) {
                 ></div>
                 <div className="book-shelf-changer">
                     <select defaultValue={ book.shelf ? book.shelf : 'none' } onChange={(event) => updateShelf(book, event)}>
-                        <option value="none" disabled>
+                        <option value="" disabled>
                             Move to...
                         </option>
                         {shelfs.map(val => (
@@ -46,7 +46,7 @@ export function Book({book, updateShelf }) {
                 </div>
             </div>
             <div className="book-title">{book.title}</div>
-            <div className="book-authors">{book.authors ? book.authors[0] : ''}</div>
+            <div className="book-authors">{book.authors && book.authors.length >= 1 ? book.authors.join() : ''}</div>
         </div>
     )
 }
